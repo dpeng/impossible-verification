@@ -15,78 +15,116 @@
         </header>
 
         <main class="main-content">
-            <!-- Password Verification Section -->
-            <section class="verification-section">
-                <h2>🔑 Password Verification</h2>
-                <p class="description">Enter a password that meets our "simple" requirements...</p>
-                <div class="form-group">
-                    <input type="password" id="password" placeholder="Enter your password">
-                    <button onclick="verifyPassword()" class="verify-btn">Verify Password</button>
+            <!-- MEGA Human Verification Section - TOP PRIORITY! -->
+            <section class="verification-section mega-human-verification">
+                <div class="mega-header">
+                    <h1 class="mega-title">🤖👤🔍 ULTIMATE HUMAN VERIFICATION CHALLENGE 🔍👤🤖</h1>
+                    <div class="warning-banner">
+                        ⚠️ ATTENTION: ROBOTS DETECTED IN THE VICINITY ⚠️
+                    </div>
+                    <p class="mega-description">
+                        🚨 <strong>CRITICAL SECURITY ALERT!</strong> 🚨<br>
+                        Our advanced AI has detected suspicious bot-like activity! To proceed, you must prove your humanity 
+                        by solving this <em>completely reasonable</em> and <em>totally solvable</em> verification challenge.
+                        <br><br>
+                        <span class="blinking">⭐ DIFFICULTY LEVEL: IMPOSSIBLE ⭐</span>
+                    </p>
                 </div>
-                <div id="password-result" class="result"></div>
-                <div class="requirements">
-                    <p><strong>Requirements:</strong></p>
-                    <ul id="password-requirements">
-                        <li>At least 8 characters long</li>
-                        <li>Must contain uppercase and lowercase letters</li>
-                        <li>Must contain numbers</li>
-                        <li>Must contain special characters</li>
-                        <li>Must not contain common words</li>
+                
+                <div class="mega-captcha-container">
+                    <div class="captcha-theater">
+                        <div class="spotlight-effect"></div>
+                        <div id="captcha-question" class="mega-captcha-question">
+                            Loading the mysteries of the universe...
+                        </div>
+                    </div>
+                    
+                    <div class="mega-form-group">
+                        <input type="text" id="captcha-answer" class="mega-input" placeholder="Type your answer here (good luck, human)">
+                        <div class="button-group">
+                            <button onclick="verifyCaptcha()" class="mega-verify-btn">
+                                🧠 VERIFY MY HUMANITY 🧠
+                            </button>
+                            <button onclick="generateCaptcha()" class="mega-refresh-btn">
+                                🔄 GIVE ME A NEW IMPOSSIBLE QUESTION 🔄
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="captcha-result" class="mega-result"></div>
+                
+                <div class="human-tips">
+                    <h3>💡 HELPFUL HINTS FOR HUMANS:</h3>
+                    <ul>
+                        <li>🤔 Think with your heart, not your mind</li>
+                        <li>🌟 The answer exists in a parallel dimension</li>
+                        <li>🔮 Consult your local fortune teller</li>
+                        <li>🎭 Remember: logic is just a social construct</li>
+                        <li>🌈 Try answering in the color purple</li>
                     </ul>
                 </div>
             </section>
 
-            <!-- Email Verification Section -->
-            <section class="verification-section">
-                <h2>📧 Email Verification</h2>
-                <p class="description">Verify your email address with our advanced validation...</p>
-                <div class="form-group">
-                    <input type="email" id="email" placeholder="Enter your email">
-                    <button onclick="verifyEmail()" class="verify-btn">Verify Email</button>
-                </div>
-                <div id="email-result" class="result"></div>
-            </section>
-
-            <!-- Age Verification Section -->
-            <section class="verification-section">
-                <h2>🎂 Age Verification</h2>
-                <p class="description">Prove you're old enough for this content...</p>
-                <div class="form-group">
-                    <input type="date" id="birthdate" placeholder="Select your birth date">
-                    <button onclick="verifyAge()" class="verify-btn">Verify Age</button>
-                </div>
-                <div id="age-result" class="result"></div>
-            </section>
-
-            <!-- Phone Number Verification -->
-            <section class="verification-section">
-                <h2>📱 Phone Verification</h2>
-                <p class="description">Enter your phone number for SMS verification...</p>
-                <div class="form-group">
-                    <input type="tel" id="phone" placeholder="Enter your phone number">
-                    <button onclick="verifyPhone()" class="verify-btn">Send SMS Code</button>
-                </div>
-                <div class="form-group" id="sms-group" style="display: none;">
-                    <input type="text" id="sms-code" placeholder="Enter SMS code" maxlength="6">
-                    <button onclick="verifySMSCode()" class="verify-btn">Verify Code</button>
-                </div>
-                <div id="phone-result" class="result"></div>
-            </section>
-
-            <!-- Captcha Verification -->
-            <section class="verification-section">
-                <h2>🤖 Human Verification</h2>
-                <p class="description">Prove you're not a robot...</p>
-                <div class="captcha-container">
-                    <div id="captcha-question" class="captcha-question"></div>
+            <div class="other-verifications">
+                <!-- Password Verification Section -->
+                <section class="verification-section">
+                    <h2>🔑 Password Verification</h2>
+                    <p class="description">Enter a password that meets our "simple" requirements...</p>
                     <div class="form-group">
-                        <input type="text" id="captcha-answer" placeholder="Enter the answer">
-                        <button onclick="verifyCaptcha()" class="verify-btn">Verify</button>
-                        <button onclick="generateCaptcha()" class="refresh-btn">↻</button>
+                        <input type="password" id="password" placeholder="Enter your password">
+                        <button onclick="verifyPassword()" class="verify-btn">Verify Password</button>
                     </div>
-                </div>
-                <div id="captcha-result" class="result"></div>
-            </section>
+                    <div id="password-result" class="result"></div>
+                    <div class="requirements">
+                        <p><strong>Requirements:</strong></p>
+                        <ul id="password-requirements">
+                            <li>At least 8 characters long</li>
+                            <li>Must contain uppercase and lowercase letters</li>
+                            <li>Must contain numbers</li>
+                            <li>Must contain special characters</li>
+                            <li>Must not contain common words</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Email Verification Section -->
+                <section class="verification-section">
+                    <h2>📧 Email Verification</h2>
+                    <p class="description">Verify your email address with our advanced validation...</p>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Enter your email">
+                        <button onclick="verifyEmail()" class="verify-btn">Verify Email</button>
+                    </div>
+                    <div id="email-result" class="result"></div>
+                </section>
+
+                <!-- Age Verification Section -->
+                <section class="verification-section">
+                    <h2>🎂 Age Verification</h2>
+                    <p class="description">Prove you're old enough for this content...</p>
+                    <div class="form-group">
+                        <input type="date" id="birthdate" placeholder="Select your birth date">
+                        <button onclick="verifyAge()" class="verify-btn">Verify Age</button>
+                    </div>
+                    <div id="age-result" class="result"></div>
+                </section>
+
+                <!-- Phone Number Verification -->
+                <section class="verification-section">
+                    <h2>📱 Phone Verification</h2>
+                    <p class="description">Enter your phone number for SMS verification...</p>
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder="Enter your phone number">
+                        <button onclick="verifyPhone()" class="verify-btn">Send SMS Code</button>
+                    </div>
+                    <div class="form-group" id="sms-group" style="display: none;">
+                        <input type="text" id="sms-code" placeholder="Enter SMS code" maxlength="6">
+                        <button onclick="verifySMSCode()" class="verify-btn">Verify Code</button>
+                    </div>
+                    <div id="phone-result" class="result"></div>
+                </section>
+            </div>
 
             <!-- File Upload Verification -->
             <section class="verification-section">

@@ -228,55 +228,93 @@ function verifySMSCode() {
     }, 1500 + Math.random() * 2000);
 }
 
-// Captcha System (Impossible Math Problems)
+// Captcha System (MEGA Impossible Questions)
 function generateCaptcha() {
     const impossibleQuestions = [
-        "What is the square root of -1 in base 12?",
-        "How many sides does a circle have? (in non-Euclidean geometry)",
-        "What is ∞ + 1?",
-        "Solve for x: x = x + 1",
-        "What is the color of the number 7?",
-        "How much does a thought weigh?",
-        "What is the last digit of π?",
-        "Count to infinity. What comes after?",
-        "What is the sound of one hand clapping in vacuum?",
-        "Divide by zero and tell us the result:",
-        "What is the 13th month of the year?",
-        "How many letters are in the number purple?"
+        "🧮 What is the square root of -1 multiplied by the meaning of life, divided by the number of unicorns in Switzerland?",
+        "🌀 If a tree falls in a forest and no one is around, what WiFi password does it use?",
+        "🎭 What is the emotional state of the number 7 when it realizes it's not a prime number in binary?",
+        "🌈 How many colors are there in invisible light?",
+        "🤔 If you could eat the concept of 'purple', what would it taste like in Celsius?",
+        "🎪 What is the square dance equivalent of quantum entanglement?",
+        "🔮 Complete this sequence: 1, 1, 2, 3, 5, 8, ?, where ? = the sound of silence",
+        "🌟 If parallel lines meet in infinity, what do they discuss over coffee?",
+        "🎨 What is the hex color code for the feeling of nostalgia on a Tuesday?",
+        "🚀 How fast does dark travel when light isn't looking?",
+        "🎵 What note does the universe hum when it's trying to remember where it put its keys?",
+        "🧩 If time is money, what's the exchange rate between yesterday and next Thursday?",
+        "🌙 How many philosophers does it take to change a light bulb in Schrödinger's basement?",
+        "🎪 What is the derivative of happiness with respect to pizza?",
+        "🌊 If you fold space-time origami-style, what shape do you get?",
+        "🎭 What language do mimes speak when they think no one is listening?",
+        "🔥 How hot is absolute zero when it's having a bad day?",
+        "🌸 What's the password to enter the matrix, but in Comic Sans font?",
+        "🎮 If life is a simulation, what's the cheat code for happiness?",
+        "🦄 How many impossible things do you believe before breakfast, and what's their combined weight in giggles?"
     ];
 
     currentCaptcha = impossibleQuestions[Math.floor(Math.random() * impossibleQuestions.length)];
-    document.getElementById('captcha-question').textContent = currentCaptcha;
+    const questionElement = document.getElementById('captcha-question');
+    
+    // Add dramatic typing effect
+    questionElement.textContent = '';
+    let i = 0;
+    const typingInterval = setInterval(() => {
+        if (i < currentCaptcha.length) {
+            questionElement.textContent += currentCaptcha.charAt(i);
+            i++;
+        } else {
+            clearInterval(typingInterval);
+        }
+    }, 50);
 }
 
 function verifyCaptcha() {
     if (!currentCaptcha) {
         generateCaptcha();
-        showResult('captcha-result', 'Please solve the captcha first.', 'warning');
+        showResult('captcha-result', 'Please solve the captcha first, dear human (allegedly).', 'warning');
         return;
     }
 
     const answer = document.getElementById('captcha-answer').value;
-    showLoadingResult('captcha-result', 'Processing answer through philosophical validation engine...');
+    showLoadingResult('captcha-result', '🔍 Analyzing answer through interdimensional philosophical matrix...');
 
     setTimeout(() => {
-        const responses = [
-            "Incorrect. The answer is obviously 42, but in a different base system.",
-            "Wrong. You're thinking in 3D, but this is a 4D math problem.",
-            "Nope. The correct answer exists only in theoretical mathematics.",
-            "Incorrect. Your answer lacks sufficient existential depth.",
-            "Wrong. The answer is correct but you're in the wrong universe.",
-            "Nope. This captcha requires synesthesia to solve correctly.",
-            "Incorrect. The answer changes based on quantum observer effect.",
-            "Wrong. You need to solve this with your heart, not your mind."
+        const epicResponses = [
+            "🤖 BEEP BOOP! Just kidding. Your answer translates to 'banana' in robot language. INCORRECT.",
+            "🧠 Close! But you forgot to carry the existential crisis in your calculation.",
+            "🎭 Your answer shows promise, but lacks the theatrical flair expected by our AI overlords.",
+            "🌈 Wrong universe, friend! Your answer is correct in reality #47B, but we're currently in reality #23X.",
+            "🔮 The crystal ball says: 'Answer unclear, try again with more interpretive dance.'",
+            "🎪 BZZT! Your answer triggered our 'Too Logical' detector. Please think more irrationally.",
+            "🌟 Surprisingly close! Unfortunately, our system only accepts answers written in the ancient language of memes.",
+            "🎵 Your answer has the right notes, but you're singing in the wrong dimension.",
+            "🚀 ERROR 404: Logic not found. Please restart your imagination and try again.",
+            "🦄 Your answer lacks sufficient amounts of unicorn magic. Recommendation: Add more sparkles.",
+            "🎨 Creative! But our AI art critic rated your answer 'Needs more cowbell/10'.",
+            "🌙 Incorrect! The answer was obviously 'potato', but only on Wednesdays during a lunar eclipse.",
+            "🎪 So close! You're thinking like a human, but we need you to think like a caffeinated squirrel.",
+            "🔥 Your answer is fire! Literally. It set our servers ablaze. Please think cooler thoughts.",
+            "🎮 GAME OVER! Insert 25¢ of existential dread to continue.",
+            "🌊 Your answer created ripples in the space-time continuum. Our insurance doesn't cover that.",
+            "🎭 Plot twist! There was never a correct answer. This is actually a test of your capacity for confusion.",
+            "🦋 Your answer caused a butterfly effect that changed the outcome of a chess game in 1987. REJECTED."
         ];
 
-        const response = responses[Math.floor(Math.random() * responses.length)];
-        showResult('captcha-result', response, 'error');
+        const response = epicResponses[Math.floor(Math.random() * epicResponses.length)];
         
-        // Generate new impossible captcha
-        setTimeout(generateCaptcha, 1000);
-    }, 2000 + Math.random() * 1500);
+        // Special mega result styling for the mega section
+        const resultElement = document.getElementById('captcha-result');
+        resultElement.textContent = response;
+        resultElement.className = 'mega-result error';
+        
+        // Generate new impossible captcha with extra drama
+        setTimeout(() => {
+            generateCaptcha();
+            // Clear the input for dramatic effect
+            document.getElementById('captcha-answer').value = '';
+        }, 3000);
+    }, 2000 + Math.random() * 2000);
 }
 
 // Document Verification (Always Suspicious)
