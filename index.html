@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impossible Verification System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🔒 Impossible Verification System</h1>
+            <p class="subtitle">A playground of intentionally flaky verification demos</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Password Verification Section -->
+            <section class="verification-section">
+                <h2>🔑 Password Verification</h2>
+                <p class="description">Enter a password that meets our "simple" requirements...</p>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Enter your password">
+                    <button onclick="verifyPassword()" class="verify-btn">Verify Password</button>
+                </div>
+                <div id="password-result" class="result"></div>
+                <div class="requirements">
+                    <p><strong>Requirements:</strong></p>
+                    <ul id="password-requirements">
+                        <li>At least 8 characters long</li>
+                        <li>Must contain uppercase and lowercase letters</li>
+                        <li>Must contain numbers</li>
+                        <li>Must contain special characters</li>
+                        <li>Must not contain common words</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Email Verification Section -->
+            <section class="verification-section">
+                <h2>📧 Email Verification</h2>
+                <p class="description">Verify your email address with our advanced validation...</p>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Enter your email">
+                    <button onclick="verifyEmail()" class="verify-btn">Verify Email</button>
+                </div>
+                <div id="email-result" class="result"></div>
+            </section>
+
+            <!-- Age Verification Section -->
+            <section class="verification-section">
+                <h2>🎂 Age Verification</h2>
+                <p class="description">Prove you're old enough for this content...</p>
+                <div class="form-group">
+                    <input type="date" id="birthdate" placeholder="Select your birth date">
+                    <button onclick="verifyAge()" class="verify-btn">Verify Age</button>
+                </div>
+                <div id="age-result" class="result"></div>
+            </section>
+
+            <!-- Phone Number Verification -->
+            <section class="verification-section">
+                <h2>📱 Phone Verification</h2>
+                <p class="description">Enter your phone number for SMS verification...</p>
+                <div class="form-group">
+                    <input type="tel" id="phone" placeholder="Enter your phone number">
+                    <button onclick="verifyPhone()" class="verify-btn">Send SMS Code</button>
+                </div>
+                <div class="form-group" id="sms-group" style="display: none;">
+                    <input type="text" id="sms-code" placeholder="Enter SMS code" maxlength="6">
+                    <button onclick="verifySMSCode()" class="verify-btn">Verify Code</button>
+                </div>
+                <div id="phone-result" class="result"></div>
+            </section>
+
+            <!-- Captcha Verification -->
+            <section class="verification-section">
+                <h2>🤖 Human Verification</h2>
+                <p class="description">Prove you're not a robot...</p>
+                <div class="captcha-container">
+                    <div id="captcha-question" class="captcha-question"></div>
+                    <div class="form-group">
+                        <input type="text" id="captcha-answer" placeholder="Enter the answer">
+                        <button onclick="verifyCaptcha()" class="verify-btn">Verify</button>
+                        <button onclick="generateCaptcha()" class="refresh-btn">↻</button>
+                    </div>
+                </div>
+                <div id="captcha-result" class="result"></div>
+            </section>
+
+            <!-- File Upload Verification -->
+            <section class="verification-section">
+                <h2>📄 Document Verification</h2>
+                <p class="description">Upload a valid document for identity verification...</p>
+                <div class="form-group">
+                    <input type="file" id="document" accept=".pdf,.jpg,.png,.jpeg">
+                    <button onclick="verifyDocument()" class="verify-btn">Verify Document</button>
+                </div>
+                <div id="document-result" class="result"></div>
+            </section>
+
+            <!-- Biometric Verification -->
+            <section class="verification-section">
+                <h2>👁️ Biometric Verification</h2>
+                <p class="description">Access your camera for facial recognition...</p>
+                <div class="biometric-container">
+                    <video id="video" width="300" height="200" style="display: none;"></video>
+                    <canvas id="canvas" width="300" height="200" style="display: none;"></canvas>
+                    <div id="camera-placeholder" class="camera-placeholder">
+                        📷 Camera will appear here
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button onclick="startBiometric()" class="verify-btn">Start Face Scan</button>
+                    <button onclick="captureBiometric()" class="verify-btn" id="capture-btn" disabled>Capture</button>
+                </div>
+                <div id="biometric-result" class="result"></div>
+            </section>
+
+            <!-- Location Verification -->
+            <section class="verification-section">
+                <h2>🌍 Location Verification</h2>
+                <p class="description">Verify your current location...</p>
+                <div class="form-group">
+                    <button onclick="verifyLocation()" class="verify-btn">Get My Location</button>
+                </div>
+                <div id="location-result" class="result"></div>
+                <div id="location-details" class="location-details"></div>
+            </section>
+
+            <!-- Two-Factor Authentication -->
+            <section class="verification-section">
+                <h2>🔐 Two-Factor Authentication</h2>
+                <p class="description">Set up 2FA with your authenticator app...</p>
+                <div class="qr-container">
+                    <div id="qr-code" class="qr-placeholder">
+                        <div class="qr-square"></div>
+                        <p>QR Code for 2FA Setup</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="totp-code" placeholder="Enter 6-digit code" maxlength="6">
+                    <button onclick="verifyTOTP()" class="verify-btn">Verify 2FA Code</button>
+                </div>
+                <div id="totp-result" class="result"></div>
+            </section>
+
+            <!-- Network Connectivity Check -->
+            <section class="verification-section">
+                <h2>🌐 Network Verification</h2>
+                <p class="description">Checking your network connectivity and security...</p>
+                <div class="network-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Connection Speed:</span>
+                        <span id="connection-speed">Measuring...</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Latency:</span>
+                        <span id="latency">Testing...</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Security Level:</span>
+                        <span id="security-level">Analyzing...</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button onclick="verifyNetwork()" class="verify-btn">Run Network Test</button>
+                </div>
+                <div id="network-result" class="result"></div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>⚠️ This is a demonstration of intentionally failing verification systems. Not for production use!</p>
+        </footer>
+    </div>
+
+    <script src="verification.js"></script>
+</body>
+</html>
