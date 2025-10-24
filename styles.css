@@ -17,6 +17,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    position: relative; /* Needed for full-width child elements */
 }
 
 /* Header styles */
@@ -69,14 +70,15 @@ body {
 
 /* MEGA HUMAN VERIFICATION SECTION */
 .mega-human-verification {
-    grid-column: 1 / -1; /* Spans entire grid width */
+    width: 100vw; /* Full viewport width */
+    margin-left: calc(-50vw + 50%); /* Center it while spanning full width */
     background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
     background-size: 400% 400%;
     animation: rainbowShift 8s ease-in-out infinite;
     padding: 3rem;
     margin-bottom: 3rem;
     border: 5px solid #ff6b6b;
-    border-radius: 25px;
+    border-radius: 0; /* Remove border radius for full width effect */
     box-shadow: 
         0 0 50px rgba(255, 107, 107, 0.5),
         inset 0 0 30px rgba(255, 255, 255, 0.2);
@@ -109,6 +111,10 @@ body {
 .mega-header {
     text-align: center;
     margin-bottom: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2rem;
 }
 
 .mega-title {
@@ -172,7 +178,8 @@ body {
     border-radius: 25px;
     padding: 2rem;
     border: 4px solid #4ecdc4;
-    margin: 2rem 0;
+    margin: 2rem auto;
+    max-width: 1200px;
 }
 
 .captcha-theater {
@@ -320,8 +327,9 @@ body {
     background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
     border-radius: 20px;
     padding: 2rem;
-    margin-top: 2rem;
+    margin: 2rem auto 0;
     border: 3px dashed #e17055;
+    max-width: 1200px;
 }
 
 .human-tips h3 {
@@ -697,6 +705,43 @@ input[type="tel"]:focus {
     input[type="date"],
     input[type="tel"] {
         min-width: auto;
+    }
+    
+    /* Mobile adjustments for mega section */
+    .mega-human-verification {
+        padding: 2rem 1rem;
+        margin-left: calc(-50vw + 50%);
+        width: 100vw;
+    }
+    
+    .mega-title {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .mega-header,
+    .mega-captcha-container,
+    .human-tips {
+        padding: 1rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    
+    .mega-captcha-question {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .mega-verify-btn, 
+    .mega-refresh-btn {
+        min-width: auto;
+        font-size: 1rem;
+        padding: 1rem 2rem;
     }
 }
 
